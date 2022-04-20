@@ -1,0 +1,24 @@
+Dear XXX,
+
+I'm working on cleaning and analyzing the receipts, users, and brand data. I'm trying to create a relational database to manage the connections between those data. Here are what I did and the issues I discovered:
+
+The initial JSON data is unstructured, so I unfolded the data and stored them into a sql database. The ER-diagram is attached below.
+I found several issues about the dataset and I'm writing to you to seek for some help.
+
+1. I first found that the unique barcodes in the receipt don't match the barcodes in the brand dataset. So I dig into the receipt dataset.
+
+In regards of receipts, there are 58% of the total receipts that don't contain a barcode. This is probably because the barcode was not scanned while the receipt was being collected. 
+Also, only 15% of the barcodes in the receipts can be matched with the barcodes the brand dataset, meaning that we don't know many of the brands of the receipts we collected.
+
+2. Since receipts and brands are poorly matched, I then checked for the relationship between receipts and users.
+
+I found that 117 users in the receipts we collected are not found in the user database.
+
+In conclusion, the structural relationship between our datasets is the main direction of our improvement. I believe that in order to solve those issues that I mentioned above, we need to collect more data and expand our database for the brand and users, so they can be better matched with the large number of receipts we collect.
+If we do not solve these issues, it will cause performance issues in production. For example, when we get a receipt, if we don't know what brand it corresponds to and what user is using it, it becomes quite meaningless to store the receipt in the database.
+
+I hope I explained the work well, and if you have any questions please let me know.
+Thanks for your time and help!
+
+Sincerely,
+Yuzhao Pan
